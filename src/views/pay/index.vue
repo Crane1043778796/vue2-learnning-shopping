@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import { getAddressList } from '@/api/address'
+import { getAddressList, addAddress } from '@/api/address'
 import { checkOrder, submitOrder } from '@/api/order'
 
 export default {
@@ -134,7 +134,7 @@ export default {
   },
   created () {
     this.getAddressList()
-    // this.addAddress()
+    this.addAddress()
     // this.delAddress(11527)
     this.getOrderList()
   },
@@ -146,31 +146,31 @@ export default {
     },
 
     // 添加收货地址
-    // async addAddress () {
-    //   const res = await addAddress({
-    //     form: {
-    //       name: '阿符',
-    //       phone: '18999292929',
-    //       region: [{
-    //         value: 1925,
-    //         label: '广东省'
-    //       }, {
-    //         value: 1926,
-    //         label: '广州市'
-    //       }, {
-    //         value: 1930,
-    //         label: '天河区'
-    //       }],
-    //       detail: '凤凰街道柯木塱'
-    //     }
-    //   })
-    //   console.log(res)
-    // }
+    async addAddress () {
+      const res = await addAddress({
+        form: {
+          name: '阿符',
+          phone: '18999292929',
+          region: [{
+            value: 1925,
+            label: '广东省'
+          }, {
+            value: 1926,
+            label: '广州市'
+          }, {
+            value: 1930,
+            label: '天河区'
+          }],
+          detail: '凤凰街道柯木塱'
+        }
+      })
+      console.log(res)
+    },
 
-    // 删除收货地址
+    // // 删除收货地址
     // async delAddress (addressId) {
     //   await delAddress(addressId)
-    // }
+    // },
 
     async getOrderList () {
       if (this.mode === 'cart') {

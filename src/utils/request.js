@@ -4,8 +4,7 @@ import store from '@/store/index'
 
 const instance = axios.create({
   baseURL: 'http://smart-shop.itheima.net/index.php?s=/api',
-  timeout: 5000,
-  headers: { platform: 'H5' }
+  timeout: 5000
 })
 
 // 添加请求拦截器
